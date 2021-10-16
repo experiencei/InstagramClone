@@ -7,10 +7,14 @@ function App() {
     {username : "Experince" ,
      caption : " I love coding , sounds weird?",
      imageUrl : "https://images.pexels.com/photos/4348405/pexels-photo-4348405.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"},
-     
+
      {username : "ExperinceIq" ,
      caption : " I love programming and autonomous"
-    ,imageUrl : "https://images.pexels.com/photos/7241625/pexels-photo-7241625.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"}
+    ,imageUrl : "https://images.pexels.com/photos/7241625/pexels-photo-7241625.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"},
+    {
+      username :"Faruk" ,caption:"what the hell" ,
+      imageUrl :"https://images.pexels.com/photos/4348079/pexels-photo-4348079.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+    }
   ]);
 
   return (
@@ -22,9 +26,12 @@ function App() {
         alt="instagram_logo"
       />
      </div>
-     <Posts username="Experience" caption="Now it works" imageUrl="https://images.pexels.com/photos/4348078/pexels-photo-4348078.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"/>
-     <Posts username="Faruk" caption="what the hell" imageUrl="https://images.pexels.com/photos/4348079/pexels-photo-4348079.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"/>
-     <Posts username="Rildwan" caption="what the fuck" imageUrl="https://images.pexels.com/photos/7772770/pexels-photo-7772770.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"/>
+     <h1> Hello Experience jr Ibrahim</h1>
+     {
+       posts.map( post => (
+         <Posts username={post.username} caption={post.caption} imageUrl={post.imageUrl}/>
+       ))
+     }
     </div>
   );
 }
