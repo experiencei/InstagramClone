@@ -33,7 +33,9 @@ function ImageUpload() {
           .getDownloadURL()
           .then(
               url => {
-                  
+                db.collection("posts").add({
+                    
+                })
               }
           )
       }
