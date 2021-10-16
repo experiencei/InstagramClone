@@ -1,6 +1,7 @@
-import React, { useState } from "react"
+import React, { useState , useEffect } from "react";
 import './App.css';
 import Posts from "./components/posts/Posts";
+import db from "./components/firebase/Firebase";
 
 function App() {
   const [ posts , SetPosts] = useState([
@@ -16,6 +17,11 @@ function App() {
       imageUrl :"https://images.pexels.com/photos/4348079/pexels-photo-4348079.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
     }
   ]);
+
+   useEffect(() => {
+     db.collection("posts").onSnapshot()
+
+   }, []);
 
   return (
     <div className="app">
