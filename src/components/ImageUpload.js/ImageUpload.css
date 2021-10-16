@@ -8,4 +8,9 @@
    margin-bottom: 10px;
    position: fixed;
    bottom: 0;
+   background-color: white;
+   border-top: 1px solid gray;
+}
+.imageupload__Progress{
+    width: 100%;
 }
