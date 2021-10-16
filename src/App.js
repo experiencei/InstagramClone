@@ -1,7 +1,7 @@
 import React, { useState , useEffect } from "react";
 import './App.css';
 import Posts from "./components/posts/Posts";
-import{ db }from "./components/firebase/Firebase";
+import{ db , auth}from "./components/firebase/Firebase";
 import { Button, Input, makeStyles, Modal } from "@material-ui/core";
 
 
@@ -36,6 +36,18 @@ function App() {
   const [ password  , setPassword] = useState("");
   const [ email  , setEmail] = useState("");
   const [ open  , setOpen] = useState(false);
+  const [ user  , setUser] = useState(null);
+
+
+  useEffect(() => {
+    auth.onAuthStateChanged((userAuth) => {
+      if (userAuth) {
+        setUser(userAuth)
+      } else {
+        setUser(null)
+      }
+    })
+  }, [])
 
    useEffect(() => {
      db.collection("posts").onSnapshot( snapshot => {
@@ -48,7 +60,11 @@ function App() {
    }, []);
    
    const signUp = (event) => {
-
+       event.preventDefault();
+       auth.createUserWithEmailAndPassword( email , password)
+       .catch((err) => {
+         alert(err.message)
+       })
    }
 
 
@@ -60,31 +76,33 @@ function App() {
   
     >
       <div style={modalStyle} className={classes.paper}>
-        <center>
-          <img
-            className="app__headerImage"
-            alt="logo"
-          />
-          <Input
-            placeholder="username"
-            type="text"
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
-          />
-          <Input
-            placeholder="email"
-            type="text"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-          />
-          <Input
-            placeholder="password"
-            type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-          />
-          <Button onClick={signUp}>Sign Up</Button>
-        </center>
+      <form className="app__signup">
+    <center>
+        <img
+          className="app__headerImage"
+          alt="logo"
+        />
+    </center>
+            <Input
+              placeholder="username"
+              type="text"
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
+            />
+            <Input
+              placeholder="email"
+              type="text"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            />
+            <Input
+              placeholder="password"
+              type="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+            />
+            <Button type="submit" onClick={signUp}>Sign Up</Button>
+          </form>
       </div>
     </Modal>
      <div className="app__header">
