@@ -2,7 +2,7 @@ import React, { useState , useEffect } from "react";
 import './App.css';
 import Posts from "./components/posts/Posts";
 import{ db }from "./components/firebase/Firebase";
-import { makeStyles, Modal } from "@material-ui/core";
+import { Button, makeStyles, Modal } from "@material-ui/core";
 import { mergeClasses } from "@material-ui/styles";
 
 
@@ -30,8 +30,8 @@ const useStyles = makeStyles((theme) => ({
 }))
 
 function App() {
-  const classes = useStyles(getModalStyle);
-  const[modalStyle] = useState
+  const classes = useStyles();
+  const[modalStyle] = useState(getModalStyle);
   const [ posts , setPosts] = useState([]);
   const [ open  , setOpen] = useState(false);
 
@@ -63,6 +63,7 @@ function App() {
         alt="instagram_logo"
       />
      </div>
+     <Button onClick={() => setOpen(true)}>Sign Up</Button>
      <h1> Hello Experience jr Ibrahim</h1>
      {
        posts.map(({ post , id}) => (
