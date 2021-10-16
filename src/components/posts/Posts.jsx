@@ -8,8 +8,10 @@ function Posts({username , caption ,imageUrl , postId}) {
 
 
     useEffect(() => {
+        let unsubscribe;
        if(postId) {
        unsubscribe = db
+          .collection("posts")
           .doc(postId)
           .collection("comments")
           .onSnapshot( (snapshot) => {
@@ -36,6 +38,24 @@ function Posts({username , caption ,imageUrl , postId}) {
                 src={imageUrl}
                 />
             <h4 className="post__text"> <strong>{username}</strong>  {caption}</h4>
+
+            <form>
+              <input
+                className="post__input"
+                type="text"
+                placeholder="Add a comment..."
+                value={comments}
+                onChange={(e) => setComments(e.target.value)}
+              />
+              <button
+              disabled={!comments}
+              className="post__button"
+              type="submit"
+              onClick={postComment}
+              >
+                Posts
+              </button>
+            </form>
         </div>
     )
 }
