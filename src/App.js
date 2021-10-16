@@ -4,6 +4,7 @@ import Posts from "./components/posts/Posts";
 import{ db , auth}from "./components/firebase/Firebase";
 import { Button, Input, makeStyles, Modal } from "@material-ui/core";
 import ImageUpload from "./components/ImageUpload.js/ImageUpload";
+import InstagramEmbed from "react-instagram-embed";
 
 
 function getModalStyle() {
@@ -181,8 +182,18 @@ function App() {
        ))
      }
      </div>
-    
-
+    <InstagramEmbed
+      url="https://instagr.am/p/Zw9o4/"
+      maxWidth={320}
+      hideCaption={false}
+      containerTagName="div"
+      protocol=""
+      injectScript
+      onLoading={() => {}}
+      onSuccess={() => {}}
+      onAfterRender={() => {}}
+      onFailure={() => {}}
+      />
      {user?.displayName ? (<ImageUpload username={user.displayName}/>) : (<h3> Sorry! you Need to login to Upload</h3>)}
     </div>
   );
