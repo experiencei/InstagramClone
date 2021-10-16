@@ -7,7 +7,14 @@ function ImageUpload() {
   const [progress, setProgress] = useState(0)
   const [image, setImage] = useState(null);
 
-  
+  const handleChange = (e) => {
+      if (e.target.files[0]) {
+        setImage(e.target.files[0])
+      }
+  }
+  const handleUpload = (e) => {
+     
+  }
 
     return (
         <div>
