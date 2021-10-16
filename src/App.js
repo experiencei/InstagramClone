@@ -42,12 +42,19 @@ function App() {
   useEffect(() => {
     auth.onAuthStateChanged((userAuth) => {
       if (userAuth) {
-        setUser(userAuth)
+        setUser(userAuth);
+        if (userAuth.displayName) {
+          
+        } else {
+          return userAuth.updateProfile({
+            displayName : username
+          })
+        }
       } else {
         setUser(null)
       }
     })
-  }, [])
+  }, [user , username])
 
    useEffect(() => {
      db.collection("posts").onSnapshot( snapshot => {
