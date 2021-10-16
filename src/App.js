@@ -1,8 +1,18 @@
-import React from "react"
+import React, { useState } from "react"
 import './App.css';
 import Posts from "./components/posts/Posts";
 
 function App() {
+  const [ posts , SetPosts] = useState([
+    {username : "Experince" ,
+     caption : " I love coding , sounds weird?",
+     imageUrl : "https://images.pexels.com/photos/4348405/pexels-photo-4348405.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"},
+     
+     {username : "ExperinceIq" ,
+     caption : " I love programming and autonomous"
+    ,imageUrl : "https://images.pexels.com/photos/7241625/pexels-photo-7241625.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"}
+  ]);
+
   return (
     <div className="app">
      <div className="app__header">
