@@ -1,9 +1,10 @@
 import React, {useState} from 'react';
+import firebase from 'firebase/compat/app';
 import { Button } from '@material-ui/core';
 import { storage , db } from '../firebase/Firebase';
 
 
-function ImageUpload() {
+function ImageUpload({ username}) {
   const [caption, setCaption] = useState('')
   const [progress, setProgress] = useState(0)
   const [image, setImage] = useState(null);
@@ -34,7 +35,7 @@ function ImageUpload() {
           .then(
               url => {
                 db.collection("posts").add({
-                   timestamp:firebase.firestore.FieldValue.serverTimestamp() ,
+                   timestamp: firebase.firestore.FieldValue.serverTimestamp() ,
                    caption: caption,
                    imageUrl : url,
                    username : username
