@@ -14,6 +14,9 @@
   display: flex;
   justify-content: space-between;
 }
+.app__headerImage{
+  object-fit: contain;
+}
 
 .app__signup{
   display: flex;

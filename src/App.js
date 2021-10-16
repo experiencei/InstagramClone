@@ -173,13 +173,15 @@ function App() {
        <Button onClick={() => setOpen(true)}>Sign Up</Button>
        </div>)}
      </div>
-     
-      <h1> Hello Experience jr Ibrahim</h1>
+
+     <div className="app__posts">
      {
        posts.map(({ post , id}) => (
          <Posts key={id} username={post.username} caption={post.caption} imageUrl={post.imageUrl}/>
        ))
      }
+     </div>
+    
 
      {user?.displayName ? (<ImageUpload username={user.displayName}/>) : (<h3> Sorry! you Need to login to Upload</h3>)}
     </div>
