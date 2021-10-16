@@ -40,7 +40,7 @@ function App() {
 
 
   useEffect(() => {
-    auth.onAuthStateChanged((userAuth) => {
+ const unsubscribe = auth.onAuthStateChanged((userAuth) => {
       if (userAuth) {
         setUser(userAuth);
         if (userAuth.displayName) {
@@ -54,6 +54,9 @@ function App() {
         setUser(null)
       }
     })
+    return () => {
+      unsubscribe();
+    }
   }, [user , username])
 
    useEffect(() => {
@@ -69,6 +72,11 @@ function App() {
    const signUp = (event) => {
        event.preventDefault();
        auth.createUserWithEmailAndPassword( email , password)
+       .then((userAuth) => {
+         return userAuth.user.updateProfile({
+           displayName: username
+         })
+       })
        .catch((err) => {
          alert(err.message)
        })
@@ -119,7 +127,8 @@ function App() {
         alt="instagram_logo"
       />
      </div>
-     <Button onClick={() => setOpen(true)}>Sign Up</Button>
+     {user ? (<Button onClick={() => auth.signOut()}>Log Out</Button>) : 
+     (<Button onClick={() => setOpen(true)}>Sign Up</Button>)}
      <h1> Hello Experience jr Ibrahim</h1>
      {
        posts.map(({ post , id}) => (
