@@ -39,7 +39,11 @@ function ImageUpload({ username}) {
                    caption: caption,
                    imageUrl : url,
                    username : username
-                })
+                });
+
+                setProgress(0);
+                setCaption("");
+                setImage(null)
               }
           )
       }
