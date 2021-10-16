@@ -183,20 +183,22 @@ function App() {
      }
      </div>
     <InstagramEmbed
-      url="https://instagr.am/p/Zw9o4/"
+      url='https://www.instagram.com/p/B_uf9dmAGPw/'
       maxWidth={320}
       hideCaption={false}
-      containerTagName="div"
-      protocol=""
+      containerTagName='div'
+      protocol=''
       injectScript
       onLoading={() => {}}
       onSuccess={() => {}}
       onAfterRender={() => {}}
       onFailure={() => {}}
       />
+
      {user?.displayName ? (<ImageUpload username={user.displayName}/>) : (<h3> Sorry! you Need to login to Upload</h3>)}
     </div>
   );
 }
+// https://www.instagram.com/p/CHdnlyBleyE/?utm_medium=copy_link
 
 export default App;
