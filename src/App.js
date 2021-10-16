@@ -12,7 +12,9 @@ function App() {
         alt="instagram_logo"
       />
      </div>
-     <Posts/>
+     <Posts username="Experience" caption="Now it works" imageUrl="https://images.pexels.com/photos/4348078/pexels-photo-4348078.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"/>
+     <Posts username="Faruk" caption="what the hell" imageUrl="https://images.pexels.com/photos/4348079/pexels-photo-4348079.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"/>
+     <Posts username="Rildwan" caption="what the fuck" imageUrl="https://images.pexels.com/photos/7772770/pexels-photo-7772770.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"/>
     </div>
   );
 }
