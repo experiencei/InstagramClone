@@ -2,3 +2,6 @@
     width: 100%;
     object-fit: contain;
 }
+.post__text{
+    font-size: 30px;
+}
