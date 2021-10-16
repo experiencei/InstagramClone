@@ -3,7 +3,6 @@ import './App.css';
 import Posts from "./components/posts/Posts";
 import{ db }from "./components/firebase/Firebase";
 import { Button, Input, makeStyles, Modal } from "@material-ui/core";
-import { mergeClasses } from "@material-ui/styles";
 
 
 function getModalStyle() {
@@ -36,7 +35,7 @@ function App() {
   const [ username  , setUsername] = useState("");
   const [ password  , setPassword] = useState("");
   const [ email  , setEmail] = useState("");
- 
+  const [ open  , setOpen] = useState(false);
 
    useEffect(() => {
      db.collection("posts").onSnapshot( snapshot => {
@@ -84,6 +83,7 @@ function App() {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
+          <Button onClick={signUp}>Sign Up</Button>
         </center>
       </div>
     </Modal>
