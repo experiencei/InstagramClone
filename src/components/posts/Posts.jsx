@@ -22,6 +22,10 @@ function Posts({username , caption ,imageUrl , postId}) {
             unsubscribe();
         }
     }, [postId]);
+
+    const postComment = (event) => {
+
+    }
     return (
         <div className="post">
         <div className="post__header">
@@ -39,7 +43,7 @@ function Posts({username , caption ,imageUrl , postId}) {
                 />
             <h4 className="post__text"> <strong>{username}</strong>  {caption}</h4>
 
-            <form>
+            <form className="post__commentBox">
               <input
                 className="post__input"
                 type="text"
