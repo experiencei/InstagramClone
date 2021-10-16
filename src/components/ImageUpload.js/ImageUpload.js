@@ -22,7 +22,21 @@ function ImageUpload() {
              (snapshot.bytesTransferred / snapshot.totalBytes) * 100
          );
          setProgress(progress)
-     }
+     } ,
+      ( error) => {
+          alert(error.message)
+      } ,
+      () => {
+          storage
+          .ref("images")
+          .child(image.name)
+          .getDownloadURL()
+          .then(
+              url => {
+                  
+              }
+          )
+      }
      )
   }
 
