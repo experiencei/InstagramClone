@@ -9,9 +9,12 @@
   margin-left: 20px;
 }
 .app__header{
+  position: sticky;
+  top: 0;
+  z-index: 9;
   object-fit: contain;
   padding: 20px;
-  color: white;
+  background-color: white;
   border-bottom: 1px solid lightgray;
   display: flex;
   justify-content: space-between;

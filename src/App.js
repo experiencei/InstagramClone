@@ -108,6 +108,7 @@ function App() {
         <img
           className="app__headerImage"
           alt="logo"
+          src="https://www.instagram.com/static/images/web/mobile_nav_type_logo.png/735145cfe0a4.png"
         />
     </center>
             <Input
@@ -162,7 +163,7 @@ function App() {
     </Modal>
      <div className="app__header">
       <img
-        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQMsu2EDni57l9IyTLGTDeF9mxi-bSN3OD2UGje0Bl971KGzVW_xQdEr_GgocIfc9QBe2Q&usqp=CAU"
+        src="https://www.instagram.com/static/images/web/mobile_nav_type_logo.png/735145cfe0a4.png"
         className="app__headerImage"
         alt="instagram_logo"
       />
@@ -179,7 +180,7 @@ function App() {
      <div className="app__postsLeft">
         {
           posts.map(({ post , id}) => (
-            <Posts key={id} postId={id} username={post.username} caption={post.caption} imageUrl={post.imageUrl}/>
+            <Posts key={id} postId={id} user={user} username={post.username} caption={post.caption} imageUrl={post.imageUrl}/>
           ))
         }
      </div>

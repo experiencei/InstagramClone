@@ -33,10 +33,18 @@
     border: none;
     padding: 10px;
     border-top: 1px solid lightgray;
+    outline: none;
 }
 .post__button{
     flex: 0;
     border: none;
     color: #6082a3;
+    outline: none;
     border-top: 1px solid lightgray;
+}
+.post__comments{
+  padding: 20px;  
+}
+.bold{
+    margin-right: 6px;
 }
