@@ -1,25 +1,17 @@
 import React, { useState , useEffect } from "react";
 import './App.css';
 import Posts from "./components/posts/Posts";
-import db from "./components/firebase/Firebase";
+import{ db }from "./components/firebase/Firebase";
 
 function App() {
   const [ posts , SetPosts] = useState([
-    {username : "Experince" ,
-     caption : " I love coding , sounds weird?",
-     imageUrl : "https://images.pexels.com/photos/4348405/pexels-photo-4348405.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"},
-
-     {username : "ExperinceIq" ,
-     caption : " I love programming and autonomous"
-    ,imageUrl : "https://images.pexels.com/photos/7241625/pexels-photo-7241625.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"},
-    {
-      username :"Faruk" ,caption:"what the hell" ,
-      imageUrl :"https://images.pexels.com/photos/4348079/pexels-photo-4348079.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
-    }
+    
   ]);
 
    useEffect(() => {
-     db.collection("posts").onSnapshot()
+     db.collection("posts").onSnapshot( snapshot => {
+      SetPosts( snapshot.docs.map( doc => doc.data()))
+     })
 
    }, []);
 
