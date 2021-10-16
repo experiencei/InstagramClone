@@ -96,7 +96,7 @@ function App() {
 
   return (
     <div className="app">
-    <ImageUpload/>
+    <ImageUpload username={user.}/>
     <Modal
      open={open}
      onClose={() =>setOpen(false)}
