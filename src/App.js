@@ -176,24 +176,28 @@ function App() {
      </div>
 
      <div className="app__posts">
-     {
-       posts.map(({ post , id}) => (
-         <Posts key={id} username={post.username} caption={post.caption} imageUrl={post.imageUrl}/>
-       ))
-     }
+     <div className="app__postsLeft">
+        {
+          posts.map(({ post , id}) => (
+            <Posts key={id} username={post.username} caption={post.caption} imageUrl={post.imageUrl}/>
+          ))
+        }
      </div>
-    <InstagramEmbed
-      url='https://www.instagram.com/p/B_uf9dmAGPw/'
-      maxWidth={320}
-      hideCaption={false}
-      containerTagName='div'
-      protocol=''
-      injectScript
-      onLoading={() => {}}
-      onSuccess={() => {}}
-      onAfterRender={() => {}}
-      onFailure={() => {}}
-      />
+      <div className="app__postsRight">
+          <InstagramEmbed
+            url='https://www.instagram.com/p/B_uf9dmAGPw/'
+            maxWidth={320}
+            hideCaption={false}
+            containerTagName='div'
+            protocol=''
+            injectScript
+            onLoading={() => {}}
+            onSuccess={() => {}}
+            onAfterRender={() => {}}
+            onFailure={() => {}}
+            />
+      </div>
+     </div>
 
      {user?.displayName ? (<ImageUpload username={user.displayName}/>) : (<h3> Sorry! you Need to login to Upload</h3>)}
     </div>

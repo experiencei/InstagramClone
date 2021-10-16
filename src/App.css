@@ -5,7 +5,9 @@
 .app{
   background-color: #fafafa;
 }
-
+.app__postsRight{
+  margin-left: 20px;
+}
 .app__header{
   object-fit: contain;
   padding: 20px;
@@ -24,4 +26,6 @@
 }
 .app__posts{
   padding: 20px;
+  display: flex;
+  justify-content: center;
 }
